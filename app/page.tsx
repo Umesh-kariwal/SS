@@ -12,7 +12,19 @@ import EnquiryForm from '@/components/EnquiryForm';
 import Footer from '@/components/Footer';
 import MobileStickyBar from '@/components/MobileStickyBar';
 import PropertyDetailModal from '@/components/PropertyDetailModal';
-import { Sparkles, Building, Info, Loader2, X } from 'lucide-react';
+import {
+  Sparkles,
+  Building,
+  Info,
+  Loader2,
+  X,
+  ShieldCheck,
+  Award,
+  FileCheck,
+  Users,
+  CheckCircle2,
+  Scale,
+} from 'lucide-react';
 
 export default function HomePage() {
   const [settings, setSettings] = useState<any>(null);
@@ -105,7 +117,7 @@ export default function HomePage() {
       {/* Header Navbar */}
       <Navbar phone={phone} whatsapp={whatsapp} businessName={settings?.businessName || 'Sawriya Seth Properties'} />
 
-      {/* Hero Section with Architectural Grid */}
+      {/* Hero Section */}
       <Hero
         title={settings?.heroTitle}
         subtitle={settings?.heroSubtitle}
@@ -113,6 +125,53 @@ export default function HomePage() {
         whatsapp={whatsapp}
         onSelectLocation={handleSelectLocation}
       />
+
+      {/* Trust & Authority Credentials Section (Why Ronak Khatik is the Best Dealer) */}
+      <section className="py-12 bg-white border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="flex items-start gap-3.5 p-4 rounded-2xl bg-amber-50/60 border border-amber-200/80">
+              <ShieldCheck className="w-6 h-6 text-brand-gold flex-shrink-0 mt-0.5" />
+              <div>
+                <h4 className="text-sm font-bold text-brand-slate">100% Verified Legal Title</h4>
+                <p className="text-xs text-brand-slateMuted font-normal mt-0.5">
+                  Complete Sub-Registrar & Khasra verification before any deal.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3.5 p-4 rounded-2xl bg-amber-50/60 border border-amber-200/80">
+              <Users className="w-6 h-6 text-brand-gold flex-shrink-0 mt-0.5" />
+              <div>
+                <h4 className="text-sm font-bold text-brand-slate">Direct Owner Meetings</h4>
+                <p className="text-xs text-brand-slateMuted font-normal mt-0.5">
+                  100% transparent negotiations with 0% hidden middleman markup.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3.5 p-4 rounded-2xl bg-amber-50/60 border border-amber-200/80">
+              <FileCheck className="w-6 h-6 text-brand-gold flex-shrink-0 mt-0.5" />
+              <div>
+                <h4 className="text-sm font-bold text-brand-slate">Registry & Mutation Support</h4>
+                <p className="text-xs text-brand-slateMuted font-normal mt-0.5">
+                  Complete paperwork assistance from token to Namantaran.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3.5 p-4 rounded-2xl bg-amber-50/60 border border-amber-200/80">
+              <Award className="w-6 h-6 text-brand-gold flex-shrink-0 mt-0.5" />
+              <div>
+                <h4 className="text-sm font-bold text-brand-slate">Regional Market Expertise</h4>
+                <p className="text-xs text-brand-slateMuted font-normal mt-0.5">
+                  Deep land expertise across Debari, Nathdwara, Dabok, Mavli & Daroli.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Featured Properties Showcase Section */}
       {featuredProperties.length > 0 && (
@@ -275,7 +334,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer with Working Navigation Links */}
+      {/* Footer */}
       <Footer
         phone={phone}
         email={email}
