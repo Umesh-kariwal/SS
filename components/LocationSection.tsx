@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, ArrowRight } from 'lucide-react';
 
@@ -10,6 +10,9 @@ interface LocationItem {
   description: string;
 }
 
+const FALLBACK_LOCATION_IMAGE =
+  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80';
+
 const LOCATION_DETAILS: LocationItem[] = [
   {
     name: 'Debari',
@@ -18,7 +21,7 @@ const LOCATION_DETAILS: LocationItem[] = [
   },
   {
     name: 'Nathdwara',
-    image: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
     description: 'High-value pilgrimage & tourism hub around Shrinathji temple with lucrative commercial parcels.',
   },
   {
@@ -33,12 +36,12 @@ const LOCATION_DETAILS: LocationItem[] = [
   },
   {
     name: 'Dabok',
-    image: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80',
     description: 'Maharana Pratap Airport vicinity with gated residential societies and premium connectivity.',
   },
   {
     name: 'Mavli',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80',
     description: 'Key railway junction corridor with logistics, commercial warehouse, and industrial land.',
   },
 ];
@@ -52,6 +55,8 @@ export default function LocationSection({
   propertyCounts = {},
   onSelectLocation,
 }: LocationSectionProps) {
+  const [imgErrorMap, setImgErrorMap] = useState<Record<string, boolean>>({});
+
   return (
     <section id="locations" className="py-20 bg-brand-cream relative overflow-hidden border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -77,6 +82,7 @@ export default function LocationSection({
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {LOCATION_DETAILS.map((loc, index) => {
             const count = propertyCounts[loc.name] || 0;
+            const imgSrc = imgErrorMap[loc.name] ? FALLBACK_LOCATION_IMAGE : loc.image;
 
             return (
               <motion.div
@@ -88,10 +94,13 @@ export default function LocationSection({
                 onClick={() => onSelectLocation && onSelectLocation(loc.name)}
                 className="group relative rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-brand-gold cursor-pointer shadow-luxury hover:shadow-luxury-hover transition-all duration-300 flex flex-col justify-end min-h-[300px]"
               >
-                {/* Background image */}
+                {/* Background image with onError Fallback */}
                 <img
-                  src={loc.image}
+                  src={imgSrc}
                   alt={loc.name}
+                  onError={() =>
+                    setImgErrorMap((prev) => ({ ...prev, [loc.name]: true }))
+                  }
                   loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-75"
                 />
