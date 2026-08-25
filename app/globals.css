@@ -32,6 +32,23 @@
     linear-gradient(to bottom, rgba(226, 232, 240, 0.5) 1px, transparent 1px);
 }
 
+/* Ken Burns Smooth Zoom Effect for Slideshow */
+@keyframes kenburns {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-kenburns {
+  animation: kenburns 8s ease-in-out infinite alternate;
+}
+
 /* Custom scrollbars */
 ::-webkit-scrollbar {
   width: 8px;

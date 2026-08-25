@@ -105,7 +105,7 @@ export default function Hero({
             <div className="pt-6 border-t border-slate-200">
               <div className="text-xs uppercase tracking-widest text-brand-slateMuted font-bold mb-3 flex items-center justify-center lg:justify-start gap-2">
                 <MapPin className="w-4 h-4 text-brand-gold" />
-                <span>Primary Service Hubs</span>
+                <span>Primary Locations</span>
               </div>
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
                 {LOCATIONS.map((loc) => (
@@ -121,7 +121,7 @@ export default function Hero({
             </div>
           </motion.div>
 
-          {/* Right Column: Ronak Khatik Profile Card with SS Properties Brand */}
+          {/* Right Column: Ronak Khatik Clean Profile Card */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}

@@ -71,7 +71,7 @@ export default function Navbar({
         </SecretAdminGesture>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-bold text-brand-slate whitespace-nowrap">
+        <nav className="hidden md:flex items-center gap-5 lg:gap-7 text-sm font-bold text-brand-slate whitespace-nowrap">
           <a href="#properties" className="hover:text-brand-bronze transition-colors">
             Properties
           </a>
@@ -89,21 +89,22 @@ export default function Navbar({
           </a>
         </nav>
 
-        {/* Desktop Call, WhatsApp & Instagram Action Buttons */}
+        {/* Desktop Call, WhatsApp & Highly Visible Instagram Button */}
         <div className="hidden sm:flex items-center gap-2.5 flex-shrink-0">
           <a
             href={instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2.5 rounded-full text-pink-600 bg-pink-50 border border-pink-200 hover:bg-gradient-to-tr hover:from-amber-500 hover:via-rose-500 hover:to-purple-600 hover:text-white shadow-sm transition-all flex-shrink-0"
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-bold text-white bg-gradient-to-r from-purple-600 via-rose-500 to-amber-500 hover:brightness-110 shadow-md transition-all whitespace-nowrap flex-shrink-0"
             title="Follow Sawriya Seth Properties on Instagram (@ssproperties001)"
           >
             <Instagram className="w-4 h-4" />
+            <span>@ssproperties001</span>
           </a>
 
           <a
             href={`tel:${phone}`}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold text-brand-slate border border-slate-300 hover:border-brand-gold hover:text-brand-bronze bg-white shadow-sm transition-all whitespace-nowrap"
+            className="flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-bold text-brand-slate border border-slate-300 hover:border-brand-gold hover:text-brand-bronze bg-white shadow-sm transition-all whitespace-nowrap"
           >
             <Phone className="w-3.5 h-3.5 text-brand-gold flex-shrink-0" />
             <span>Call +91 {phone}</span>
@@ -113,7 +114,7 @@ export default function Navbar({
             href={waLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-md transition-all whitespace-nowrap flex-shrink-0 min-w-max"
+            className="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-md transition-all whitespace-nowrap flex-shrink-0 min-w-max"
           >
             <MessageCircle className="w-4 h-4 flex-shrink-0" />
             <span>WhatsApp</span>
@@ -150,7 +151,7 @@ export default function Navbar({
               href={instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-full bg-pink-100 text-pink-600 border border-pink-300"
+              className="p-2.5 rounded-full bg-gradient-to-r from-purple-600 via-rose-500 to-amber-500 text-white shadow-sm"
               title="Instagram"
             >
               <Instagram className="w-5 h-5" />

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, CheckCircle, MessageCircle, ShieldCheck, MapPin, Award, Building2 } from 'lucide-react';
+import { Phone, Mail, CheckCircle, MessageCircle, ShieldCheck, MapPin, Award, Building2, Instagram } from 'lucide-react';
 import { generateWhatsAppLink, formatPhone } from '@/lib/utils';
 
 interface AboutSectionProps {
@@ -12,6 +12,7 @@ interface AboutSectionProps {
   heading?: string;
   description?: string;
   photoUrl?: string;
+  instagramUrl?: string;
 }
 
 export default function AboutSection({
@@ -21,6 +22,7 @@ export default function AboutSection({
   heading = 'Sawriya Seth Properties — Your Property Partner',
   description = 'Sawriya Seth Properties (SS Properties), led by Ronak Khatik, provides transparent, expert real estate consultancy services specializing in residential plots, commercial land, agricultural parcels, and luxury properties across the Udaipur & Rajsamand region.',
   photoUrl = '/uploads/ronak_khatik.jpg',
+  instagramUrl = 'https://www.instagram.com/ssproperties001?igsi=emJ4emtvenVieXJs',
 }: AboutSectionProps) {
   const waLink = generateWhatsAppLink(
     phone,
@@ -119,7 +121,7 @@ export default function AboutSection({
             {/* Direct Contact Options Box */}
             <div className="p-6 sm:p-8 rounded-3xl bg-brand-cream border border-slate-200 space-y-5 shadow-sm">
               <div className="text-xs font-extrabold text-brand-bronze uppercase tracking-wider">
-                Direct Contact Options
+                Direct Contact & Social Options
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -137,15 +139,17 @@ export default function AboutSection({
                 </a>
 
                 <a
-                  href={`mailto:${email}`}
-                  className="flex items-center gap-3.5 p-4 rounded-2xl bg-white border border-slate-200 hover:border-brand-gold transition-colors text-brand-slate text-sm shadow-sm"
+                  href={instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3.5 p-4 rounded-2xl bg-gradient-to-r from-purple-600/10 via-rose-500/10 to-amber-500/10 border border-pink-300 hover:border-pink-500 transition-colors text-brand-slate text-sm shadow-sm"
                 >
-                  <div className="p-2.5 rounded-xl bg-amber-100 text-brand-bronze">
-                    <Mail className="w-4 h-4" />
+                  <div className="p-2.5 rounded-xl bg-gradient-to-r from-purple-600 via-rose-500 to-amber-500 text-white">
+                    <Instagram className="w-4 h-4" />
                   </div>
                   <div className="overflow-hidden">
-                    <div className="text-[11px] text-brand-slateMuted font-medium">Email Address</div>
-                    <div className="font-bold text-xs truncate">{email}</div>
+                    <div className="text-[11px] text-brand-slateMuted font-medium">Instagram Handle</div>
+                    <div className="font-bold text-xs truncate">@ssproperties001</div>
                   </div>
                 </a>
               </div>
