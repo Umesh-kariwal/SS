@@ -1,0 +1,97 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id           String   @id @default(uuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         String   @default("admin")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Property {
+  id               String            @id @default(uuid())
+  title            String
+  slug             String            @unique
+  propertyType     String            // Plot, Villa, Commercial, House, Land
+  location         String            // Debari, Nathdwara, Daroli, Navaniya, Dabok, Mavli
+  address          String
+  price            Float
+  priceDisplay     String            // e.g. "₹ 45 Lakhs" or "₹ 3,500 / sq.ft"
+  area             Float
+  areaUnit         String            // sq.ft, Bigha, Gaj, Acres
+  shortDescription String
+  description      String
+  status           String            @default("Available") // Available, Sold, Reserved, Coming Soon, Draft
+  isFeatured       Boolean           @default(false)
+  videoUrl         String?
+  virtualTourUrl   String?
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+
+  images           PropertyImage[]
+  features         PropertyFeature[]
+  enquiries        Enquiry[]
+}
+
+model PropertyImage {
+  id         String   @id @default(uuid())
+  propertyId String
+  imageUrl   String
+  isCover    Boolean  @default(false)
+  sortOrder  Int      @default(0)
+  createdAt  DateTime @default(now())
+
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+}
+
+model PropertyFeature {
+  id         String   @id @default(uuid())
+  propertyId String
+  feature    String
+
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+}
+
+model Enquiry {
+  id                String    @id @default(uuid())
+  name              String
+  phone             String
+  email             String?
+  propertyId        String?
+  requirement       String?
+  preferredLocation String?
+  budget            String?
+  message           String
+  status            String    @default("New") // New, Contacted, FollowUp, Converted, Closed
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  property          Property? @relation(fields: [propertyId], references: [id], onDelete: SetNull)
+}
+
+model WebsiteSettings {
+  id               String   @id @default("default")
+  businessName     String   @default("Ronak Khatik Real Estate")
+  ownerName        String   @default("Ronak Khatik")
+  phone            String   @default("9511397967")
+  email            String   @default("khatik.raja93@gmail.com")
+  whatsapp         String   @default("9511397967")
+  heroTitle        String   @default("Find the Right Property. Build the Right Future.")
+  heroSubtitle     String   @default("Trusted local real estate consulting across Debari, Nathdwara, Daroli, Navaniya, Dabok, and Mavli.")
+  heroCtaText      String   @default("Explore Properties")
+  aboutHeading     String   @default("Your Local Property Partner")
+  aboutDescription String   @default("Ronak Khatik provides transparent, expert real estate consultancy services specializing in residential plots, commercial land, and premium properties across Udaipur region.")
+  aboutPhotoUrl    String?
+  footerText       String   @default("Ronak Khatik Real Estate Consultancy. All rights reserved.")
+  instagramUrl     String?  @default("https://www.instagram.com/ssproperties001?igsi=emJ4emtvenVieXJs")
+  updatedAt        DateTime @updatedAt
+}

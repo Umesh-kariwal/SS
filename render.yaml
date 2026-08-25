@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: sawriya-seth-properties
+    env: node
+    region: singapore
+    plan: free
+    buildCommand: npm install && npx prisma generate && npx prisma db push && npx prisma db seed && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        value: file:./dev.db
+      - key: JWT_SECRET
+        value: sawriya_seth_properties_jwt_secret_9511397967
+      - key: ADMIN_PASSWORD
+        value: Ronak@9511397967
