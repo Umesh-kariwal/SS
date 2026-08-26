@@ -12,7 +12,7 @@ import EnquiryForm from '../components/EnquiryForm';
 import Footer from '../components/Footer';
 import MobileStickyBar from '../components/MobileStickyBar';
 import PropertyDetailModal from '../components/PropertyDetailModal';
-import EmiCalculator from '../components/EmiCalculator';
+import EmiCalculatorModal from '../components/EmiCalculatorModal';
 import TestimonialsSection from '../components/TestimonialsSection';
 import {
   Sparkles,
@@ -35,6 +35,7 @@ export default function HomePage() {
 
   // Modals state
   const [showEnquiryModal, setShowEnquiryModal] = useState(false);
+  const [showEmiModal, setShowEmiModal] = useState(false);
   const [selectedPropertyModal, setSelectedPropertyModal] = useState<PropertyCardData | null>(null);
 
   // Filters state
@@ -122,6 +123,7 @@ export default function HomePage() {
         email={email}
         whatsapp={whatsapp}
         businessName={settings?.businessName || 'Sawriya Seth Properties'}
+        onOpenEmiModal={() => setShowEmiModal(true)}
       />
 
       {/* Hero Section */}
@@ -303,9 +305,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Interactive Property EMI & Land Finance Calculator */}
-      <EmiCalculator whatsapp={whatsapp} />
-
       {/* Service Locations Grid */}
       <LocationSection
         propertyCounts={locationCounts}
@@ -360,8 +359,16 @@ export default function HomePage() {
       <MobileStickyBar
         phone={phone}
         whatsapp={whatsapp}
-        onEnquireClick={() => setShowEnquiryModal(false)}
+        onEnquireClick={() => setShowEnquiryModal(true)}
       />
+
+      {/* On-Demand EMI Calculator Modal */}
+      {showEmiModal && (
+        <EmiCalculatorModal
+          onClose={() => setShowEmiModal(false)}
+          whatsapp={whatsapp}
+        />
+      )}
 
       {/* Quick View Property Detail Modal */}
       {selectedPropertyModal && (
