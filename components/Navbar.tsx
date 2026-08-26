@@ -3,11 +3,12 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import SecretAdminGesture from './SecretAdminGesture';
-import { Phone, MessageCircle, Menu, X, ShieldCheck, Instagram } from 'lucide-react';
+import { Phone, MessageCircle, Menu, X, ShieldCheck, Instagram, Mail } from 'lucide-react';
 import { generateWhatsAppLink } from '../lib/utils';
 
 interface NavbarProps {
   phone?: string;
+  email?: string;
   whatsapp?: string;
   businessName?: string;
   instagramUrl?: string;
@@ -15,6 +16,7 @@ interface NavbarProps {
 
 export default function Navbar({
   phone = '9511397967',
+  email = 'khatik.raja93@gmail.com',
   whatsapp = '9511397967',
   businessName = 'Sawriya Seth Properties',
   instagramUrl = 'https://www.instagram.com/ssproperties001?igsi=emJ4emtvenVieXJs',
@@ -71,15 +73,18 @@ export default function Navbar({
         </SecretAdminGesture>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-5 lg:gap-7 text-sm font-bold text-brand-slate whitespace-nowrap">
+        <nav className="hidden md:flex items-center gap-5 lg:gap-6 text-sm font-bold text-brand-slate whitespace-nowrap">
           <a href="#properties" className="hover:text-brand-bronze transition-colors">
             Properties
           </a>
           <a href="#featured" className="hover:text-brand-bronze transition-colors">
             Featured
           </a>
+          <a href="#calculator" className="hover:text-brand-bronze transition-colors">
+            EMI Calculator
+          </a>
           <a href="#locations" className="hover:text-brand-bronze transition-colors">
-            Service Locations
+            Locations
           </a>
           <a href="#about" className="hover:text-brand-bronze transition-colors">
             About Ronak
@@ -89,22 +94,31 @@ export default function Navbar({
           </a>
         </nav>
 
-        {/* Desktop Call, WhatsApp & Highly Visible Instagram Button */}
-        <div className="hidden sm:flex items-center gap-2.5 flex-shrink-0">
+        {/* Desktop Action Buttons: Email, Call, WhatsApp & Instagram */}
+        <div className="hidden lg:flex items-center gap-2 flex-shrink-0">
+          <a
+            href={`mailto:${email}`}
+            className="flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-bold text-slate-700 border border-slate-300 hover:border-brand-gold hover:text-brand-bronze bg-white shadow-sm transition-all whitespace-nowrap"
+            title={`Send Email to ${email}`}
+          >
+            <Mail className="w-3.5 h-3.5 text-brand-gold flex-shrink-0" />
+            <span className="truncate max-w-[150px]">{email}</span>
+          </a>
+
           <a
             href={instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-bold text-white bg-gradient-to-r from-purple-600 via-rose-500 to-amber-500 hover:brightness-110 shadow-md transition-all whitespace-nowrap flex-shrink-0"
+            className="flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-bold text-white bg-gradient-to-r from-purple-600 via-rose-500 to-amber-500 hover:brightness-110 shadow-md transition-all whitespace-nowrap flex-shrink-0"
             title="Follow Sawriya Seth Properties on Instagram (@ssproperties001)"
           >
-            <Instagram className="w-4 h-4" />
+            <Instagram className="w-3.5 h-3.5" />
             <span>@ssproperties001</span>
           </a>
 
           <a
             href={`tel:${phone}`}
-            className="flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-bold text-brand-slate border border-slate-300 hover:border-brand-gold hover:text-brand-bronze bg-white shadow-sm transition-all whitespace-nowrap"
+            className="flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-bold text-brand-slate border border-slate-300 hover:border-brand-gold hover:text-brand-bronze bg-white shadow-sm transition-all whitespace-nowrap"
           >
             <Phone className="w-3.5 h-3.5 text-brand-gold flex-shrink-0" />
             <span>Call +91 {phone}</span>
@@ -114,7 +128,7 @@ export default function Navbar({
             href={waLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-md transition-all whitespace-nowrap flex-shrink-0 min-w-max"
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-md transition-all whitespace-nowrap flex-shrink-0"
           >
             <MessageCircle className="w-4 h-4 flex-shrink-0" />
             <span>WhatsApp</span>
@@ -124,7 +138,7 @@ export default function Navbar({
         {/* Mobile Hamburger Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden text-brand-slate hover:text-brand-bronze p-2.5 rounded-xl bg-slate-100 border border-slate-200 flex-shrink-0"
+          className="lg:hidden text-brand-slate hover:text-brand-bronze p-2.5 rounded-xl bg-slate-100 border border-slate-200 flex-shrink-0"
           aria-label="Toggle menu"
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -133,7 +147,7 @@ export default function Navbar({
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-slate-200 px-6 py-6 space-y-4 animate-fade-in shadow-xl">
+        <div className="lg:hidden bg-white border-b border-slate-200 px-6 py-6 space-y-4 animate-fade-in shadow-xl">
           <div className="flex items-center justify-between pb-3 border-b border-slate-100">
             <div className="flex items-center gap-3">
               <img
@@ -174,6 +188,13 @@ export default function Navbar({
               Featured Listings
             </a>
             <a
+              href="#calculator"
+              onClick={() => setMobileMenuOpen(false)}
+              className="hover:text-brand-bronze py-1"
+            >
+              EMI & Loan Calculator
+            </a>
+            <a
               href="#locations"
               onClick={() => setMobileMenuOpen(false)}
               className="hover:text-brand-bronze py-1"
@@ -196,12 +217,20 @@ export default function Navbar({
             </a>
           </nav>
 
-          <div className="pt-4 border-t border-slate-100 flex flex-col gap-3">
+          <div className="pt-4 border-t border-slate-100 flex flex-col gap-2.5">
+            <a
+              href={`mailto:${email}`}
+              className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-bold text-brand-slate border border-slate-300 bg-slate-50"
+            >
+              <Mail className="w-4 h-4 text-brand-gold" />
+              <span>Email: {email}</span>
+            </a>
+
             <a
               href={instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl text-sm font-bold text-white bg-gradient-to-r from-purple-600 via-rose-500 to-amber-500 shadow-md"
+              className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-bold text-white bg-gradient-to-r from-purple-600 via-rose-500 to-amber-500 shadow-md"
             >
               <Instagram className="w-4 h-4" />
               <span>Follow on Instagram (@ssproperties001)</span>
@@ -209,7 +238,7 @@ export default function Navbar({
 
             <a
               href={`tel:${phone}`}
-              className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl text-sm font-bold text-brand-slate border border-slate-300 bg-slate-50"
+              className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-bold text-brand-slate border border-slate-300 bg-slate-50"
             >
               <Phone className="w-4 h-4 text-brand-gold" />
               <span>Call +91 {phone}</span>
@@ -219,7 +248,7 @@ export default function Navbar({
               href={waLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl text-sm font-bold text-white bg-emerald-600 shadow-md"
+              className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-bold text-white bg-emerald-600 shadow-md"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Chat on WhatsApp</span>

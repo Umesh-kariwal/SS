@@ -12,6 +12,8 @@ import EnquiryForm from '../components/EnquiryForm';
 import Footer from '../components/Footer';
 import MobileStickyBar from '../components/MobileStickyBar';
 import PropertyDetailModal from '../components/PropertyDetailModal';
+import EmiCalculator from '../components/EmiCalculator';
+import TestimonialsSection from '../components/TestimonialsSection';
 import {
   Sparkles,
   Building,
@@ -115,7 +117,12 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-brand-cream text-brand-slate flex flex-col">
       {/* Header Navbar */}
-      <Navbar phone={phone} whatsapp={whatsapp} businessName={settings?.businessName || 'Sawriya Seth Properties'} />
+      <Navbar
+        phone={phone}
+        email={email}
+        whatsapp={whatsapp}
+        businessName={settings?.businessName || 'Sawriya Seth Properties'}
+      />
 
       {/* Hero Section */}
       <Hero
@@ -296,11 +303,17 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Interactive Property EMI & Land Finance Calculator */}
+      <EmiCalculator whatsapp={whatsapp} />
+
       {/* Service Locations Grid */}
       <LocationSection
         propertyCounts={locationCounts}
         onSelectLocation={handleSelectLocation}
       />
+
+      {/* Verified Client Testimonials Showcase */}
+      <TestimonialsSection />
 
       {/* About Ronak Khatik Section */}
       <AboutSection
@@ -347,7 +360,7 @@ export default function HomePage() {
       <MobileStickyBar
         phone={phone}
         whatsapp={whatsapp}
-        onEnquireClick={() => setShowEnquiryModal(true)}
+        onEnquireClick={() => setShowEnquiryModal(false)}
       />
 
       {/* Quick View Property Detail Modal */}
