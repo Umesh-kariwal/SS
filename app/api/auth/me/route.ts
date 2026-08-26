@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getAdminFromCookies } from '@/lib/auth';
+import { getAdminFromCookies } from '../../../../lib/auth';
 
 export const dynamic = 'force-dynamic';
 

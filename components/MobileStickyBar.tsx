@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Phone, MessageCircle, FileText } from 'lucide-react';
-import { generateWhatsAppLink } from '@/lib/utils';
+import { generateWhatsAppLink } from '../lib/utils';
 
 interface MobileStickyBarProps {
   phone?: string;

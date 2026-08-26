@@ -3,7 +3,7 @@
 import React from 'react';
 import SecretAdminGesture from './SecretAdminGesture';
 import { Phone, Mail, MapPin, MessageCircle, ChevronRight, Building2, Instagram } from 'lucide-react';
-import { generateWhatsAppLink, formatPhone } from '@/lib/utils';
+import { generateWhatsAppLink, formatPhone } from '../lib/utils';
 
 interface FooterProps {
   phone?: string;

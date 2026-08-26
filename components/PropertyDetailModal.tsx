@@ -17,7 +17,7 @@ import {
   Video,
 } from 'lucide-react';
 import { PropertyCardData } from './PropertyCard';
-import { generateWhatsAppLink, formatPhone } from '@/lib/utils';
+import { generateWhatsAppLink, formatPhone } from '../lib/utils';
 import EnquiryForm from './EnquiryForm';
 
 interface PropertyDetailModalProps {

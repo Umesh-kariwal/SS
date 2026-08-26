@@ -2,16 +2,16 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import Navbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
-import PropertyCard, { PropertyCardData } from '@/components/PropertyCard';
-import PropertyFilter from '@/components/PropertyFilter';
-import LocationSection from '@/components/LocationSection';
-import AboutSection from '@/components/AboutSection';
-import EnquiryForm from '@/components/EnquiryForm';
-import Footer from '@/components/Footer';
-import MobileStickyBar from '@/components/MobileStickyBar';
-import PropertyDetailModal from '@/components/PropertyDetailModal';
+import Navbar from '../components/Navbar';
+import Hero from '../components/Hero';
+import PropertyCard, { PropertyCardData } from '../components/PropertyCard';
+import PropertyFilter from '../components/PropertyFilter';
+import LocationSection from '../components/LocationSection';
+import AboutSection from '../components/AboutSection';
+import EnquiryForm from '../components/EnquiryForm';
+import Footer from '../components/Footer';
+import MobileStickyBar from '../components/MobileStickyBar';
+import PropertyDetailModal from '../components/PropertyDetailModal';
 import {
   Sparkles,
   Building,

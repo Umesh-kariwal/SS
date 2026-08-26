@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getAdminFromCookies } from '@/lib/auth';
+import { getAdminFromCookies } from '../../../lib/auth';
 import { readdir, stat } from 'fs/promises';
 import { join } from 'path';
 import { existsSync } from 'fs';

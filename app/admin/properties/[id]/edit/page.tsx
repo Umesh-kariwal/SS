@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
-import AdminPropertyForm from '@/components/AdminPropertyForm';
+import AdminPropertyForm from '../../../../../components/AdminPropertyForm';
 import { Loader2 } from 'lucide-react';
 
 export default function EditPropertyPage() {

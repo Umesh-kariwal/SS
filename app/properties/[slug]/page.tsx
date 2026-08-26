@@ -2,10 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import MobileStickyBar from '@/components/MobileStickyBar';
-import EnquiryForm from '@/components/EnquiryForm';
+import Navbar from '../../../components/Navbar';
+import Footer from '../../../components/Footer';
+import MobileStickyBar from '../../../components/MobileStickyBar';
+import EnquiryForm from '../../../components/EnquiryForm';
 import {
   MapPin,
   Maximize2,
@@ -18,7 +18,7 @@ import {
   ShieldAlert,
   Loader2,
 } from 'lucide-react';
-import { generateWhatsAppLink, formatPhone } from '@/lib/utils';
+import { generateWhatsAppLink, formatPhone } from '../../../lib/utils';
 
 export default function PropertyDetailPage() {
   const params = useParams();

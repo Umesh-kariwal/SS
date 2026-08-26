@@ -15,7 +15,7 @@ import {
   Eye,
   CheckCircle2,
 } from 'lucide-react';
-import { generateWhatsAppLink, formatPhone } from '@/lib/utils';
+import { generateWhatsAppLink, formatPhone } from '../lib/utils';
 
 export interface PropertyImage {
   imageUrl: string;

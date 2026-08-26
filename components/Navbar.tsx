@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import SecretAdminGesture from './SecretAdminGesture';
 import { Phone, MessageCircle, Menu, X, ShieldCheck, Instagram } from 'lucide-react';
-import { generateWhatsAppLink } from '@/lib/utils';
+import { generateWhatsAppLink } from '../lib/utils';
 
 interface NavbarProps {
   phone?: string;

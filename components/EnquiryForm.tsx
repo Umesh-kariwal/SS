@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Send, CheckCircle2, Phone, Mail, User, MapPin, Tag, MessageCircle, Loader2 } from 'lucide-react';
-import { generateWhatsAppLink } from '@/lib/utils';
+import { generateWhatsAppLink } from '../lib/utils';
 
 interface EnquiryFormProps {
   phone?: string;

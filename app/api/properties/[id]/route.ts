@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
-import { prisma } from '@/lib/db';
-import { getAdminFromCookies } from '@/lib/auth';
-import { slugify } from '@/lib/utils';
+import { prisma } from '../../../../lib/db';
+import { getAdminFromCookies } from '../../../../lib/auth';
+import { slugify } from '../../../../lib/utils';
 
 export const dynamic = 'force-dynamic';
 

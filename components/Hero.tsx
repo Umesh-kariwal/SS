@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, ArrowRight, ShieldCheck, MessageCircle, Phone, Award, CheckCircle2, Building2 } from 'lucide-react';
-import { generateWhatsAppLink, formatPhone } from '@/lib/utils';
+import { generateWhatsAppLink, formatPhone } from '../lib/utils';
 
 interface HeroProps {
   title?: string;

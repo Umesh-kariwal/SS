@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import { prisma } from '@/lib/db';
-import { getAdminFromCookies } from '@/lib/auth';
+import { prisma } from '../../../../lib/db';
+import { getAdminFromCookies } from '../../../../lib/auth';
 
 export async function PUT(
   request: Request,

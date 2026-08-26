@@ -13,7 +13,7 @@ import {
   Loader2,
   Search,
 } from 'lucide-react';
-import { generateWhatsAppLink, formatPhone } from '@/lib/utils';
+import { generateWhatsAppLink, formatPhone } from '../../../lib/utils';
 
 export default function AdminEnquiriesPage() {
   const [enquiries, setEnquiries] = useState<any[]>([]);

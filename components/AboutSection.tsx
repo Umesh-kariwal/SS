@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, CheckCircle, MessageCircle, ShieldCheck, MapPin, Award, Building2, Instagram } from 'lucide-react';
-import { generateWhatsAppLink, formatPhone } from '@/lib/utils';
+import { generateWhatsAppLink, formatPhone } from '../lib/utils';
 
 interface AboutSectionProps {
   ownerName?: string;

@@ -14,7 +14,7 @@ import {
   MessageCircle,
   Loader2,
 } from 'lucide-react';
-import { generateWhatsAppLink, formatPhone } from '@/lib/utils';
+import { generateWhatsAppLink, formatPhone } from '../../lib/utils';
 
 export default function AdminDashboardPage() {
   const [properties, setProperties] = useState<any[]>([]);
